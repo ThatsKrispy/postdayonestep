@@ -11,212 +11,362 @@
 <meta property="og:description" content="Safe, discreet, FDA-approved emergency contraception. Effective within 72 hours. No prescription needed.">
 <meta property="og:image" content="assets/product.jpg">
 <meta property="og:type" content="website">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <!-- Stripe Buy Button -->
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+<!-- ============================================================
+  ADA COMPLIANCE — UserWay Accessibility Widget
+  Replace REPLACE_WITH_USERWAY_ACCOUNT_ID with your UserWay
+  account ID from app.userway.org → Settings → Installation
+  ============================================================ -->
+<script>(function(d){var s=d.createElement('script');s.setAttribute('data-account','REPLACE_WITH_USERWAY_ACCOUNT_ID');s.setAttribute('src','https://cdn.userway.org/widget.js');(d.body||d.head).appendChild(s)})(document)</script>
+
+<!-- ============================================================
+  CONSENT MANAGEMENT — CookieYes
+  Replace the src URL with your site-specific snippet from
+  app.cookieyes.com → My Websites → Get Script
+  ============================================================ -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/REPLACE_WITH_COOKIEYES_SITE_ID/script.js"></script>
+
 <link rel="stylesheet" href="assets/site.css">
 <style>
-:root{
-  --magenta:#D41A68;
-  --magenta-dark:#A81251;
-  --ink:#1A1320;
-  --ink-soft:#5C5560;
-  --blush:#FCF0F5;
-  --blush-deep:#F7DCE8;
-  --white:#FFFFFF;
-  --line:#EDE3E9;
-  --radius:18px;
-  --shadow:0 18px 50px -20px rgba(212,26,104,.28);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Inter',system-ui,sans-serif;
-  color:var(--ink);
-  background:var(--white);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
-.eyebrow{
-  font-family:'Inter';font-size:.72rem;font-weight:600;text-transform:uppercase;
-  letter-spacing:.18em;color:var(--magenta);
-}
-
-/* ---------- Buttons ---------- */
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;justify-content:center;
-  background:var(--magenta);color:#fff;font-weight:600;font-size:1rem;
-  padding:1rem 2.2rem;border-radius:100px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-  box-shadow:0 10px 30px -10px rgba(212,26,104,.6);
-}
-.btn:hover{background:var(--magenta-dark);transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(212,26,104,.7)}
-.btn:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
-.btn-ghost{background:transparent;color:var(--magenta);border:1.5px solid var(--blush-deep);box-shadow:none}
-.btn-ghost:hover{background:var(--blush);color:var(--magenta-dark);transform:translateY(-2px)}
-
-/* ---------- Header ---------- */
-header{
-  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.nav img{height:40px;width:auto}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:.92rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
-.nav-links a:hover{color:var(--magenta)}
-.nav .btn{padding:.65rem 1.4rem;font-size:.9rem}
-.nav-toggle{display:none}
-
-/* ---------- Hero ---------- */
+/* ---- Hero ---- */
 .hero{
   position:relative;overflow:hidden;
-  background:radial-gradient(120% 100% at 100% 0%,var(--blush) 0%,var(--white) 55%);
+  background:var(--white);
 }
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:5rem 0 5.5rem}
-.hero h1{font-size:clamp(2.6rem,5.5vw,4.2rem);margin:1.2rem 0 1.4rem}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 90% at 75% 0%,var(--blush) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;padding:6rem 0 5rem;
+  position:relative;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--blush);border:1px solid var(--blush-deep);
+  border-radius:100px;padding:.38rem .9rem .38rem .55rem;
+  font-size:.72rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.15em;color:var(--magenta);margin-bottom:1.4rem;
+}
+.hero-eyebrow-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--magenta);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.6}}
+.hero h1{
+  font-size:clamp(2.8rem,5.5vw,4.6rem);
+  line-height:1.06;letter-spacing:-.025em;
+  margin-bottom:1.4rem;
+}
 .hero h1 em{font-style:italic;color:var(--magenta)}
-.hero p{font-size:1.15rem;color:var(--ink-soft);max-width:30rem;margin-bottom:2rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
-.hero-price{font-weight:600;color:var(--ink);font-size:.95rem}
-.hero-price b{font-family:'Fraunces';font-size:1.5rem;color:var(--magenta);font-weight:600}
-.hero-media{position:relative}
-.hero-media img{border-radius:var(--radius);box-shadow:var(--shadow);width:100%;object-fit:cover;aspect-ratio:4/3}
-.hero-badge{
-  position:absolute;bottom:-18px;left:-18px;background:#fff;border-radius:14px;
-  padding:.9rem 1.2rem;box-shadow:0 14px 34px -12px rgba(26,19,32,.22);
-  display:flex;align-items:center;gap:.7rem;border:1px solid var(--line);
+.hero-sub{
+  font-size:1.12rem;color:var(--ink-soft);
+  max-width:29rem;line-height:1.75;margin-bottom:2.2rem;
 }
-.hero-badge .dot{width:34px;height:34px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--magenta);font-weight:700}
-.hero-badge small{display:block;font-size:.72rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em}
-.hero-badge strong{font-size:.95rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+.pill-tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--blush);color:var(--ink);
+  border-radius:100px;padding:.55rem 1rem;
+  font-size:.88rem;font-weight:600;border:1px solid var(--blush-deep);
+}
+.pill-tag b{color:var(--magenta);font-family:'Fraunces';font-size:1.15rem}
 
-/* ---------- Trust strip ---------- */
-.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
-.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;padding:1.4rem 0;text-align:center}
-.trust-row span{font-size:.88rem;font-weight:500;color:var(--ink-soft);display:flex;align-items:center;gap:.5rem}
-.trust-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+.hero-media{position:relative;padding:.5rem}
+.hero-media img{
+  border-radius:28px;width:100%;object-fit:cover;
+  aspect-ratio:4/3;
+  box-shadow:0 40px 80px -24px rgba(212,26,104,.28),0 0 0 1px var(--blush-deep);
+}
+.hero-badge{
+  position:absolute;bottom:-10px;left:-16px;
+  background:#fff;border-radius:16px;
+  padding:1rem 1.3rem;
+  box-shadow:0 20px 50px -14px rgba(26,19,32,.2);
+  display:flex;align-items:center;gap:.8rem;
+  border:1px solid var(--line);min-width:170px;
+}
+.badge-icon{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--magenta) 0%,var(--magenta-dark) 100%);
+  display:grid;place-items:center;color:#fff;flex-shrink:0;
+  font-size:1.1rem;
+}
+.badge-text small{display:block;font-size:.68rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.badge-text strong{font-size:.98rem;font-weight:700}
 
-/* ---------- Section base ---------- */
-section.block{padding:5.5rem 0}
-.section-head{max-width:38rem;margin-bottom:3rem}
+.hero-float{
+  position:absolute;top:20px;right:-14px;
+  background:#fff;border-radius:14px;
+  padding:.75rem 1.1rem;border:1px solid var(--line);
+  box-shadow:0 10px 30px -10px rgba(26,19,32,.14);
+  font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.5rem;
+  color:var(--ink);
+}
+.hero-float-dot{width:8px;height:8px;border-radius:50%;background:#22C55E}
+
+/* ---- Trust strip ---- */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust-row{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:0;padding:0;
+}
+.trust-item{
+  display:flex;align-items:center;gap:.7rem;
+  padding:1.2rem 2.5rem;font-size:.88rem;font-weight:600;
+  color:var(--ink-soft);border-right:1px solid var(--line);
+}
+.trust-item:last-child{border-right:none}
+.trust-item svg{color:var(--magenta);flex-shrink:0}
+
+/* ---- Section base ---- */
+section.block{padding:6rem 0}
+.section-head{max-width:40rem;margin-bottom:3.5rem}
 .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
-.section-head h2{font-size:clamp(2rem,3.8vw,2.9rem);margin:.7rem 0 1rem}
-.section-head p{color:var(--ink-soft);font-size:1.05rem}
+.section-head h2{font-size:clamp(2rem,3.8vw,3rem);margin:.6rem 0 1rem}
+.section-head p{color:var(--ink-soft);font-size:1.05rem;line-height:1.75}
 
-/* ---------- Choice / benefits ---------- */
+/* ---- Benefits / choice ---- */
 .choice{background:var(--blush)}
-.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
-.choice-media img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:1/1;object-fit:cover;width:100%}
-.benefits{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.6rem;margin-top:1.5rem}
-.benefits li{display:flex;gap:.7rem;font-size:.96rem;font-weight:500;align-items:flex-start}
-.benefits li svg{flex-shrink:0;margin-top:3px}
-.choice .price-tag{margin:2rem 0 1.5rem;display:flex;align-items:baseline;gap:.6rem}
-.choice .price-tag b{font-family:'Fraunces';font-size:2.4rem;color:var(--magenta);font-weight:600}
-.choice .price-tag span{color:var(--ink-soft);font-size:.9rem}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.choice-media{position:relative}
+.choice-media img{
+  border-radius:28px;width:100%;aspect-ratio:3/4;
+  object-fit:cover;object-position:center top;
+  box-shadow:0 40px 80px -24px rgba(212,26,104,.22);
+}
+.choice-pill{
+  position:absolute;bottom:-20px;right:-20px;
+  background:#fff;border-radius:20px;padding:1.3rem 1.6rem;
+  box-shadow:0 20px 40px -14px rgba(26,19,32,.18);
+  border:1px solid var(--line);text-align:center;
+}
+.choice-pill b{font-family:'Fraunces';font-size:2.2rem;color:var(--magenta);display:block;line-height:1}
+.choice-pill span{font-size:.8rem;color:var(--ink-soft);font-weight:500}
 
-/* ---------- Feature cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.card img{aspect-ratio:16/11;object-fit:cover;width:100%}
-.card-body{padding:1.6rem}
+.benefits{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1rem 2rem;margin:1.8rem 0 2.2rem}
+.benefits li{display:flex;gap:.7rem;font-size:.96rem;font-weight:500;align-items:center;color:var(--ink)}
+.benefits li svg{flex-shrink:0;color:var(--magenta)}
+.price-line{display:flex;align-items:baseline;gap:.5rem;margin-bottom:1.8rem}
+.price-line b{font-family:'Fraunces';font-size:2.6rem;color:var(--magenta);line-height:1}
+.price-line span{color:var(--ink-soft);font-size:.9rem}
+
+/* ---- Stats row ---- */
+.stats-section{padding:5rem 0;background:var(--ink)}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.stat-item{
+  padding:3rem 2rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.stat-item:last-child{border-right:none}
+.stat-item b{
+  font-family:'Fraunces';font-size:4rem;color:var(--magenta);
+  display:block;line-height:1;margin-bottom:.4rem;
+}
+.stat-item span{color:rgba(255,255,255,.65);font-size:.92rem;line-height:1.5;display:block}
+
+/* ---- Feature cards ---- */
+.cards-section{background:var(--white)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:24px;overflow:hidden;
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -20px rgba(212,26,104,.2);border-color:var(--blush-deep)}
+.card img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.card-body{padding:1.8rem}
+.card-tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--blush);color:var(--magenta);
+  font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  border-radius:100px;padding:.3rem .8rem;margin-bottom:.9rem;
+}
 .card-body h3{font-size:1.3rem;margin-bottom:.5rem}
-.card-body p{font-size:.94rem;color:var(--ink-soft)}
+.card-body p{font-size:.94rem;color:var(--ink-soft);line-height:1.7}
 
-/* ---------- Buy / Stripe ---------- */
-.buy{background:linear-gradient(160deg,var(--magenta) 0%,var(--magenta-dark) 100%);color:#fff}
-.buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
-.buy h2{color:#fff;font-size:clamp(2rem,4vw,3rem)}
-.buy .eyebrow{color:var(--blush-deep)}
-.buy p{color:rgba(255,255,255,.85);margin:1rem 0 2rem;font-size:1.05rem}
-.buy-card{background:#fff;border-radius:24px;padding:2.4rem;color:var(--ink);box-shadow:0 30px 70px -25px rgba(0,0,0,.45)}
-.buy-card .price{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.3rem}
-.buy-card .price b{font-family:'Fraunces';font-size:3rem;color:var(--magenta);font-weight:600}
-.buy-card .price s{color:var(--ink-soft);font-size:1.1rem}
-.buy-card .pname{font-weight:600;font-size:1.05rem;margin-bottom:.2rem}
-.buy-card .pdesc{color:var(--ink-soft);font-size:.9rem;margin-bottom:1.6rem}
-.buy-card ul{list-style:none;margin-bottom:1.8rem;display:grid;gap:.6rem}
-.buy-card ul li{display:flex;gap:.6rem;font-size:.92rem;align-items:center}
-.stripe-slot{min-height:48px}
-.buy-fallback{display:block}
-.buy-note{font-size:.78rem;color:var(--ink-soft);margin-top:1.1rem;text-align:center}
-.amazon-link{margin-top:1.4rem;text-align:center}
-.amazon-link img{height:42px;margin:0 auto;opacity:.9;transition:opacity .2s}
-.amazon-link img:hover{opacity:1}
+/* ---- Buy / Stripe ---- */
+.buy{
+  background:linear-gradient(150deg,#1A1320 0%,#2D1030 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.buy::before{
+  content:'';position:absolute;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,26,104,.22) 0%,transparent 70%);
+  right:-200px;top:-200px;pointer-events:none;
+}
+.buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative}
+.buy h2{color:#fff;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1}
+.buy .eyebrow{color:rgba(212,26,104,.9);margin-bottom:1rem}
+.buy-sub{color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.75;margin:1.2rem 0 0}
 
-/* ---------- FAQ ---------- */
-.faq{max-width:780px;margin:0 auto}
-.faq details{border-bottom:1px solid var(--line);padding:.4rem 0}
+.buy-card{
+  background:#fff;border-radius:28px;
+  padding:2.6rem;color:var(--ink);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.55);
+}
+.buy-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.6rem;padding-bottom:1.4rem;border-bottom:1px solid var(--line)}
+.buy-card-name{font-weight:700;font-size:1.05rem;margin-bottom:.2rem}
+.buy-card-desc{color:var(--ink-soft);font-size:.84rem;line-height:1.5}
+.buy-price b{font-family:'Fraunces';font-size:2.6rem;color:var(--magenta);line-height:1;display:block}
+.buy-price small{font-size:.75rem;color:var(--ink-soft)}
+.buy-features{list-style:none;margin-bottom:2rem;display:grid;gap:.7rem}
+.buy-features li{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:.94rem;font-weight:500;
+}
+.buy-features li svg{color:var(--magenta);flex-shrink:0}
+.stripe-slot{min-height:52px;margin-bottom:.6rem}
+.buy-btn-fallback{
+  display:flex;width:100%;align-items:center;justify-content:center;gap:.5rem;
+  background:var(--magenta);color:#fff;font-weight:700;font-size:1rem;
+  padding:1.05rem;border-radius:100px;margin-top:.4rem;
+  box-shadow:0 12px 30px -10px rgba(212,26,104,.6);
+  transition:background .2s,transform .2s,box-shadow .2s;
+}
+.buy-btn-fallback:hover{background:var(--magenta-dark);transform:translateY(-2px);box-shadow:0 18px 36px -10px rgba(212,26,104,.7)}
+.buy-secure{
+  display:flex;align-items:center;justify-content:center;gap:.45rem;
+  font-size:.78rem;color:var(--ink-soft);margin-top:1rem;
+}
+.buy-secure svg{color:#22C55E}
+
+/* ---- FAQ ---- */
+.faq-section{background:var(--blush)}
+.faq{max-width:760px;margin:0 auto}
+.faq details{
+  border-bottom:1px solid var(--blush-deep);
+}
 .faq summary{
-  cursor:pointer;list-style:none;padding:1.2rem .2rem;font-weight:600;font-size:1.05rem;
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;
+  cursor:pointer;list-style:none;
+  padding:1.3rem .4rem;font-weight:600;font-size:1.02rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  transition:color .2s;color:var(--ink);
 }
 .faq summary:hover{color:var(--magenta)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary .ico{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--blush-deep);display:grid;place-items:center;color:var(--magenta);transition:transform .25s,background .2s}
-.faq details[open] summary .ico{transform:rotate(45deg);background:var(--blush)}
-.faq details p{padding:0 .2rem 1.3rem;color:var(--ink-soft);font-size:.97rem;max-width:90%}
-
-/* ---------- CTA banner ---------- */
-.cta-banner{text-align:center;padding:5rem 0}
-.cta-banner h2{font-size:clamp(2rem,4vw,3rem);max-width:30rem;margin:0 auto 1.4rem}
-.cta-banner p{color:var(--ink-soft);max-width:34rem;margin:0 auto 2rem;font-size:1.05rem}
-
-/* ---------- Footer ---------- */
-footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-.foot-grid img{height:54px;filter:brightness(0) invert(1);margin-bottom:1.2rem}
-.foot-grid p{color:rgba(255,255,255,.6);font-size:.92rem;max-width:24rem}
-.foot-col h4{font-family:'Inter';font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.5);margin-bottom:1.1rem;font-weight:600}
-.foot-col a{display:block;color:rgba(255,255,255,.78);font-size:.94rem;margin-bottom:.7rem;transition:color .2s}
-.foot-col a:hover{color:var(--magenta)}
-.newsletter{display:flex;gap:.5rem;margin-top:.4rem}
-.newsletter input{flex:1;padding:.7rem 1rem;border-radius:100px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:.9rem}
-.newsletter input::placeholder{color:rgba(255,255,255,.4)}
-.newsletter button{background:var(--magenta);color:#fff;border:none;border-radius:100px;padding:.7rem 1.3rem;font-weight:600;cursor:pointer;font-size:.9rem;transition:background .2s}
-.newsletter button:hover{background:var(--magenta-dark)}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem;color:rgba(255,255,255,.5)}
-.foot-bottom a{color:rgba(255,255,255,.7)}
-
-/* ---------- Reveal animation ---------- */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-
-/* ---------- Responsive ---------- */
-@media(max-width:860px){
-  .nav-links{
-    position:fixed;inset:74px 0 auto 0;background:#fff;flex-direction:column;
-    align-items:flex-start;gap:0;padding:1rem 24px 1.5rem;border-bottom:1px solid var(--line);
-    transform:translateY(-130%);transition:transform .3s ease;box-shadow:0 20px 40px -20px rgba(0,0,0,.2);
-  }
-  .nav-links.open{transform:none}
-  .nav-links a{padding:.8rem 0;width:100%;border-bottom:1px solid var(--line)}
-  .nav-links .btn{margin-top:.8rem;width:100%}
-  .nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-  .nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
-  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .nav-toggle.open span:nth-child(2){opacity:0}
-  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .hero-grid,.choice-grid,.buy-grid{grid-template-columns:1fr;gap:2.5rem}
-  .hero-grid{padding:3rem 0 4rem}
-  .hero-media{order:-1}
-  .cards{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr;gap:2rem}
-  section.block{padding:4rem 0}
+.faq summary .faq-ico{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  border:1.5px solid var(--blush-deep);display:grid;place-items:center;
+  color:var(--magenta);transition:transform .25s,background .2s,border-color .2s;
+  background:#fff;
 }
-@media(max-width:520px){
+.faq details[open] summary{color:var(--magenta)}
+.faq details[open] summary .faq-ico{transform:rotate(45deg);background:var(--magenta);border-color:var(--magenta);color:#fff}
+.faq details p{
+  padding:.2rem 2.4rem 1.4rem .4rem;
+  color:var(--ink-soft);font-size:.97rem;line-height:1.75;
+}
+
+/* ---- CTA banner ---- */
+.cta-banner{
+  text-align:center;padding:6rem 0;
+  background:linear-gradient(160deg,var(--magenta) 0%,var(--magenta-dark) 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.cta-banner h2{color:#fff;font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:28rem;margin:0 auto 1.2rem;position:relative}
+.cta-banner p{color:rgba(255,255,255,.82);max-width:34rem;margin:0 auto 2.2rem;font-size:1.08rem;position:relative}
+.btn-white{background:#fff;color:var(--magenta);box-shadow:0 14px 40px -10px rgba(0,0,0,.35);position:relative}
+.btn-white:hover{background:#fff;color:var(--magenta-dark);transform:translateY(-2px)}
+
+/* ---- Footer ---- */
+footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3.5rem;margin-bottom:3rem}
+.foot-brand img{height:50px;filter:brightness(0) invert(1);margin-bottom:1.2rem}
+.foot-brand p{color:rgba(255,255,255,.5);font-size:.9rem;line-height:1.7;max-width:22rem}
+.foot-socials{display:flex;gap:.8rem;margin-top:1.4rem}
+.foot-social{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  display:grid;place-items:center;color:rgba(255,255,255,.7);
+  transition:background .2s,color .2s;
+}
+.foot-social:hover{background:var(--magenta);color:#fff;border-color:var(--magenta)}
+.foot-col h4{
+  font-family:'Inter';font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.16em;color:rgba(255,255,255,.4);
+  margin-bottom:1.3rem;font-weight:700;
+}
+.foot-col a{
+  display:block;color:rgba(255,255,255,.7);
+  font-size:.93rem;margin-bottom:.75rem;transition:color .2s;
+}
+.foot-col a:hover{color:var(--magenta)}
+.newsletter{display:flex;gap:.5rem;margin-top:.2rem}
+.newsletter input{
+  flex:1;padding:.72rem 1.1rem;border-radius:100px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);color:#fff;font-size:.9rem;
+}
+.newsletter input::placeholder{color:rgba(255,255,255,.35)}
+.newsletter input:focus{outline:2px solid var(--magenta);outline-offset:0;border-color:transparent}
+.newsletter button{
+  background:var(--magenta);color:#fff;border:none;
+  border-radius:100px;padding:.72rem 1.3rem;
+  font-weight:700;cursor:pointer;font-size:.9rem;
+  transition:background .2s;white-space:nowrap;
+}
+.newsletter button:hover{background:var(--magenta-dark)}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.08);padding-top:1.8rem;
+  display:flex;justify-content:space-between;flex-wrap:wrap;
+  gap:1rem;font-size:.8rem;color:rgba(255,255,255,.4);
+}
+.foot-bottom a{color:rgba(255,255,255,.6);transition:color .2s}
+.foot-bottom a:hover{color:var(--magenta)}
+
+/* ---- Reveal ---- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* ---- Responsive ---- */
+@media(max-width:1000px){
+  .choice-grid{gap:3rem}
+  .buy-grid{gap:3rem}
+}
+@media(max-width:860px){
+  .hero-grid,.choice-grid,.buy-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-grid{padding:3.5rem 0 4rem}
+  .hero-media{order:-1}
+  .hero-float{display:none}
+  .choice-pill{right:0;bottom:-14px}
+  .cards{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr;gap:0}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding:2.2rem}
+  .stat-item:last-child{border-bottom:none}
+  .foot-grid{grid-template-columns:1fr;gap:2.5rem}
+  .trust-row{flex-direction:column;align-items:center;gap:0}
+  .trust-item{border-right:none;border-bottom:1px solid var(--line);width:100%;justify-content:center}
+  .trust-item:last-child{border-bottom:none}
+  section.block{padding:4.5rem 0}
+}
+@media(max-width:540px){
   .benefits{grid-template-columns:1fr}
-  .trust-row{gap:1rem 1.6rem}
+  .hero h1{font-size:2.6rem}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
+  .hero-eyebrow-dot{animation:none}
 }
 </style>
 </head>
@@ -224,14 +374,14 @@ footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
 
 <header>
   <div class="wrap nav">
-    <a href="#top"><img src="assets/FullLogo.png" alt="Post Day One Step"></a>
-    <nav class="nav-links" id="navLinks">
+    <a href="#top" aria-label="Post Day One Step Home"><img src="assets/FullLogo.png" alt="Post Day One Step"></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="/about/">About</a>
       <a href="#choice">Why It Works</a>
       <a href="/faq/">FAQ</a>
       <a href="#buy" class="btn">Order Now</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -239,49 +389,74 @@ footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
 
 <main id="top">
 
-<!-- HERO -->
-<section class="hero">
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" aria-label="Hero">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow">Your Health Comes First</span>
+      <div class="hero-eyebrow" role="text">
+        <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+        Your Health Comes First
+      </div>
       <h1>We're <em>here</em><br>for you.</h1>
-      <p>Post Day One Step offers peace of mind with safe and effective emergency contraception, because your health and comfort come first.</p>
+      <p class="hero-sub">Post Day One Step offers peace of mind with safe and effective emergency contraception, because your health and comfort come first.</p>
       <div class="hero-cta">
         <a href="#buy" class="btn">Order Now</a>
-        <span class="hero-price">From <b>$24.99</b></span>
+        <span class="pill-tag">From <b>$24.99</b></span>
       </div>
     </div>
-    <div class="hero-media reveal">
-      <img src="assets/product.jpg" alt="Post Day One Step emergency contraceptive packaging" width="1400" height="934">
-      <div class="hero-badge">
-        <div class="dot">✓</div>
-        <div><small>Effective within</small><strong>72 hours</strong></div>
+    <div class="hero-media reveal reveal-d1">
+      <img src="assets/product.jpg" alt="Post Day One Step emergency contraceptive box" width="1400" height="934">
+      <div class="hero-badge" aria-label="Effective within 72 hours">
+        <div class="badge-icon" aria-hidden="true">✓</div>
+        <div class="badge-text">
+          <small>Effective within</small>
+          <strong>72 hours</strong>
+        </div>
+      </div>
+      <div class="hero-float" aria-hidden="true">
+        <span class="hero-float-dot"></span>FDA-Approved
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust">
+<!-- ══════════ TRUST STRIP ══════════ -->
+<div class="trust" role="region" aria-label="Product credentials">
   <div class="wrap trust-row">
-    <span>FDA-approved</span>
-    <span>No prescription needed</span>
-    <span>Discreet packaging</span>
-    <span>One-dose solution</span>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 5-7 9-7 9S5 16 5 12V7l7-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      FDA-Approved
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      No Prescription Needed
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Discreet Packaging
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      One-Dose Solution
+    </div>
   </div>
 </div>
 
-<!-- CHOICE / BENEFITS -->
-<section class="block choice" id="choice">
+<!-- ══════════ BENEFITS ══════════ -->
+<section class="block choice" id="choice" aria-labelledby="choice-heading">
   <div class="wrap choice-grid">
     <div class="choice-media reveal">
-      <img src="assets/office-selfie.jpg" alt="Women smiling together">
+      <img src="assets/office-selfie.jpg" alt="Group of confident women smiling together">
+      <div class="choice-pill" aria-label="Up to 89% effective">
+        <b>89%</b>
+        <span>Effective</span>
+      </div>
     </div>
-    <div class="choice-copy reveal">
+    <div class="choice-copy reveal reveal-d1">
       <span class="eyebrow">Your Health Matters Most</span>
-      <h2>Making the right choice</h2>
-      <p style="color:var(--ink-soft);margin-top:.8rem">At Post Day One Step, we believe in empowering you with options. Life may take unexpected turns, but with Post Day One Step, you have a safe and effective solution to prevent pregnancy after contraceptive failure or unprotected sex.</p>
-      <ul class="benefits">
+      <h2 id="choice-heading">Making the right choice</h2>
+      <p style="color:var(--ink-soft);line-height:1.8">At Post Day One Step, we believe in empowering you with options. Life may take unexpected turns, but with Post Day One Step, you have a safe and effective solution to prevent pregnancy after contraceptive failure or unprotected sex.</p>
+      <ul class="benefits" role="list">
         <li>{C} Effective within 72 hours</li>
         <li>{C} FDA-approved and safe</li>
         <li>{C} Available in-store and online</li>
@@ -291,39 +466,74 @@ footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
         <li>{C} Won't affect future fertility</li>
         <li>{C} No prescription needed</li>
       </ul>
-      <div class="price-tag"><b>$24.99</b><span>MSRP · per pack</span></div>
+      <div class="price-line">
+        <b>$24.99</b>
+        <span>MSRP · per pack</span>
+      </div>
       <a href="#buy" class="btn">Order Now</a>
     </div>
   </div>
 </section>
 
-<!-- HOW IT HELPS -->
-<section class="block" id="how">
+<!-- ══════════ STATS ══════════ -->
+<section class="stats-section" aria-label="Key statistics">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat-item reveal">
+        <b>89%</b>
+        <span>Effective when taken<br>within 72 hours</span>
+      </div>
+      <div class="stat-item reveal reveal-d1">
+        <b>72h</b>
+        <span>Window for most<br>effective use</span>
+      </div>
+      <div class="stat-item reveal reveal-d2">
+        <b>1 Dose</b>
+        <span>Simple single-tablet<br>solution</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FEATURE CARDS ══════════ -->
+<section class="block cards-section" id="how" aria-labelledby="how-heading">
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="eyebrow">Take Control of Your Health</span>
-      <h2>One step at a time</h2>
+      <h2 id="how-heading">One step at a time</h2>
       <p>With the right support and access to safe solutions, you can move forward with confidence and peace of mind.</p>
     </div>
-    <div class="cards">
-      <article class="card reveal">
-        <img src="assets/laptop-woman.jpg" alt="Woman working at a laptop">
+    <div class="cards" role="list">
+      <article class="card reveal" role="listitem">
+        <img src="assets/laptop-woman.jpg" alt="Woman working calmly on a laptop">
         <div class="card-body">
-          <h3>Quick & reliable</h3>
-          <p>Provides fast and effective emergency contraception, giving you peace of mind when it matters.</p>
+          <div class="card-tag" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Fast
+          </div>
+          <h3>Quick &amp; reliable</h3>
+          <p>Provides fast and effective emergency contraception, giving you peace of mind when it matters most.</p>
         </div>
       </article>
-      <article class="card reveal">
-        <img src="assets/hero-iwd.jpg" alt="Woman smiling outdoors">
+      <article class="card reveal reveal-d1" role="listitem">
+        <img src="assets/hero-iwd.jpg" alt="Woman smiling outdoors with confidence">
         <div class="card-body">
-          <h3>Discreet & convenient</h3>
-          <p>Available online and at your local ShopRite, with discreet packaging for complete privacy.</p>
+          <div class="card-tag" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Private
+          </div>
+          <h3>Discreet &amp; convenient</h3>
+          <p>Available online and at your local ShopRite with discreet packaging for complete privacy, every time.</p>
         </div>
       </article>
-      <article class="card reveal">
-        <img src="assets/two-women.jpg" alt="Two women walking together outdoors">
+      <article class="card reveal reveal-d2" role="listitem">
+        <img src="assets/two-women.jpg" alt="Two women walking together with ease">
         <div class="card-body">
-          <h3>Trusted & safe</h3>
+          <div class="card-tag" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 5-7 9-7 9S5 16 5 12V7l7-4z"/></svg>
+            Trusted
+          </div>
+          <h3>Trusted &amp; safe</h3>
           <p>FDA-approved and trusted by thousands for its reliability and ease of use.</p>
         </div>
       </article>
@@ -331,75 +541,93 @@ footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
   </div>
 </section>
 
-<!-- BUY / STRIPE -->
-<section class="block buy" id="buy">
+<!-- ══════════ BUY ══════════ -->
+<section class="block buy" id="buy" aria-labelledby="buy-heading">
   <div class="wrap buy-grid">
     <div class="buy-copy reveal">
       <span class="eyebrow">Order Online</span>
-      <h2>Peace of mind,<br>delivered.</h2>
-      <p>Secure checkout powered by Stripe. Discreet packaging, no prescription required, shipped straight to your door.</p>
+      <h2 id="buy-heading">Peace of mind,<br>delivered.</h2>
+      <p class="buy-sub">Secure checkout powered by Stripe. Discreet packaging, no prescription required, shipped straight to your door.</p>
     </div>
-    <div class="buy-card reveal">
-      <div class="pname">Post Day One Step</div>
-      <div class="pdesc">Levonorgestrel Tablet, 1.5 mg · Emergency Contraceptive</div>
-      <div class="price"><b>$24.99</b><s>MSRP</s></div>
-      <ul>
-        <li>{Cm} Effective within 72 hours</li>
-        <li>{Cm} Discreet, private packaging</li>
-        <li>{Cm} No prescription needed</li>
+    <div class="buy-card reveal reveal-d1">
+      <div class="buy-card-header">
+        <div>
+          <div class="buy-card-name">Post Day One Step</div>
+          <div class="buy-card-desc">Levonorgestrel Tablet, 1.5 mg · Emergency Contraceptive</div>
+        </div>
+        <div class="buy-price">
+          <b>$24.99</b>
+          <small>MSRP</small>
+        </div>
+      </div>
+      <ul class="buy-features" role="list">
+        <li>{Cf} Effective within 72 hours</li>
+        <li>{Cf} Discreet, private packaging</li>
+        <li>{Cf} No prescription needed</li>
+        <li>{Cf} Secure Stripe checkout</li>
       </ul>
-
       <!-- ===== STRIPE BUY BUTTON =====
-           Replace the data-* values below with your real IDs from the
-           Stripe Dashboard → Payment Links / Buy Button.
-           Until then, the fallback button links to a Payment Link URL. -->
+           Replace data-* values from Stripe Dashboard → Buy Button
       <div class="stripe-slot">
         <stripe-buy-button
           buy-button-id="REPLACE_WITH_BUY_BUTTON_ID"
           publishable-key="pk_live_REPLACE_WITH_PUBLISHABLE_KEY">
         </stripe-buy-button>
       </div>
-      <!-- Fallback / alternative: a hosted Stripe Payment Link -->
-      <a href="https://buy.stripe.com/REPLACE_WITH_PAYMENT_LINK" class="btn buy-fallback" style="width:100%;margin-top:.4rem">Buy Now — $24.99</a>
-
-      <p class="buy-note">🔒 Secure checkout · Powered by Stripe</p>
-
-      <div class="amazon-link">
-        <a href="#" aria-label="Also available on Amazon"><img src="assets/amazon.png" alt="Available on Amazon"></a>
+      -->
+      <a href="https://buy.stripe.com/REPLACE_WITH_PAYMENT_LINK" class="buy-btn-fallback">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Buy Now — $24.99
+      </a>
+      <div class="buy-secure">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 5-7 9-7 9S5 16 5 12V7l7-4z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Secure checkout · Powered by Stripe
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="block" id="faq" style="background:var(--blush)">
+<!-- ══════════ FAQ ══════════ -->
+<section class="block faq-section" id="faq" aria-labelledby="faq-heading">
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="eyebrow">Good to Know</span>
-      <h2>Common questions</h2>
+      <h2 id="faq-heading">Common questions</h2>
+      <p>Everything you need to know, answered clearly and honestly.</p>
     </div>
-    <div class="faq reveal" id="faqList"></div>
+    <div class="faq reveal" id="faqList" role="list"></div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<section class="cta-banner">
+<!-- ══════════ CTA BANNER ══════════ -->
+<section class="cta-banner" aria-label="Call to action">
   <div class="wrap reveal">
     <h2>Take control of your health</h2>
     <p>Every decision you make about your health matters. Move forward with confidence today.</p>
-    <a href="#buy" class="btn">Order Now</a>
+    <a href="#buy" class="btn btn-white">Order Now — $24.99</a>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
-<footer>
+<!-- ══════════ FOOTER ══════════ -->
+<footer role="contentinfo">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
+      <div class="foot-brand">
         <img src="assets/FullLogo.png" alt="Post Day One Step">
         <p>Safe, effective, FDA-approved emergency contraception. Your health and comfort come first.</p>
+        <div class="foot-socials">
+          <a href="#" class="foot-social" aria-label="Follow us on Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="foot-social" aria-label="Follow us on Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="foot-social" aria-label="Follow us on YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg>
+          </a>
+        </div>
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
@@ -410,8 +638,8 @@ footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
       </div>
       <div class="foot-col">
         <h4>Newsletter</h4>
-        <p style="color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:.6rem">Subscribe for updates, news, and health tips.</p>
-        <form class="newsletter" onsubmit="return false">
+        <p style="color:rgba(255,255,255,.5);font-size:.88rem;margin-bottom:.8rem;line-height:1.6">Subscribe for updates, news, and health tips.</p>
+        <form class="newsletter" onsubmit="return false" aria-label="Newsletter signup">
           <input type="email" placeholder="Email address" aria-label="Email address" required>
           <button type="submit">Sign Up</button>
         </form>
@@ -425,13 +653,12 @@ footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
 </footer>
 
 <script>
-// ---- Checkmark icon injection ----
-const ck='<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FCF0F5"/><path d="M7 12.5l3.2 3.2L17 8.5" stroke="#D41A68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const ckm='<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FCF0F5"/><path d="M7 12.5l3.2 3.2L17 8.5" stroke="#D41A68" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-document.body.innerHTML=document.body.innerHTML.replace(/\{C\}/g,ck).replace(/\{Cm\}/g,ckm);
+// Checkmark icons
+const ck='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FCF0F5"/><path d="M7 12.5l3.2 3.2L17 8.5" stroke="#D41A68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ckf='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--blush)"/><path d="M7 12.5l3.2 3.2L17 8.5" stroke="#D41A68" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+document.body.innerHTML=document.body.innerHTML.replace(/\{C\}/g,ck).replace(/\{Cf\}/g,ckf);
 
-// ---- Mobile nav (shared) ----
-// ---- FAQ build ----
+// FAQ
 const faqs=[
   ["What is the MSRP of Post Day One Step?","The Manufacturer's Suggested Retail Price (MSRP) for Post Day One Step is $24.99. Prices may vary slightly depending on the retailer or if purchasing online with added shipping options."],
   ["What is Post Day One Step?","Post Day One Step is an FDA-approved emergency contraceptive pill designed to prevent pregnancy after unprotected sex or contraceptive failure. It works best when taken within 72 hours of intercourse."],
@@ -439,21 +666,21 @@ const faqs=[
   ["How effective is Post Day One Step?","When taken within 72 hours, Post Day One Step is up to 89% effective in preventing pregnancy. The sooner you take it, the more effective it is."],
   ["Can I take Post Day One Step more than once?","Yes, Post Day One Step can be used more than once. However, it is not meant for regular use as a primary form of contraception."],
   ["Are there any side effects?","Some users may experience mild side effects such as nausea, fatigue, dizziness, or headaches. These typically go away within 24 hours."],
-  ["Do I need a prescription for Post Day One Step?","No, Post Day One Step is available over the counter without a prescription at most pharmacies and can also be purchased online."],
+  ["Do I need a prescription?","No, Post Day One Step is available over the counter without a prescription at most pharmacies and online."],
   ["Will it protect me from sexually transmitted infections (STIs)?","No, Post Day One Step does not protect against sexually transmitted infections. It's important to use condoms to reduce the risk of STIs."],
   ["How long after unprotected sex can I take it?","Post Day One Step is most effective when taken within 72 hours (3 days) of unprotected sex, but it can be taken up to 5 days in some cases, though efficacy decreases over time."],
   ["Can I take it if I'm already pregnant?","No, Post Day One Step will not terminate an existing pregnancy. It works by preventing pregnancy before it starts."],
-  ["Will taking it affect my fertility?","No, taking Post Day One Step will not affect your future fertility or ability to conceive."]
+  ["Will taking it affect my future fertility?","No, taking Post Day One Step will not affect your future fertility or ability to conceive."]
 ];
-const plus='<span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>';
-document.getElementById('faqList').innerHTML=faqs.map(([q,a])=>
-  `<details><summary>${q}${plus}</summary><p>${a}</p></details>`).join('');
+const plus='<span class="faq-ico" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>';
+const faqEl=document.getElementById('faqList');
+faqEl.innerHTML=faqs.map(([q,a],i)=>
+  `<details role="listitem"><summary>${q}${plus}</summary><p>${a}</p></details>`).join('');
 
-// ---- Year ----
-document.getElementById('yr').textContent=new Date().getFullYear();
-
-// ---- Scroll reveal ----
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+// Scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 <script src="assets/nav.js"></script>
