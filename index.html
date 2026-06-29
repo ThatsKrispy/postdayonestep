@@ -371,10 +371,11 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header>
   <div class="wrap nav">
-    <a href="#top" aria-label="Post Day One Step Home"><img src="assets/FullLogo.png" alt="Post Day One Step"></a>
+    <a href="/" class="nav-logo" aria-label="Post Day One Step Home"><img src="assets/FullLogo.png" alt="Post Day One Step" width="160" height="50" loading="lazy"></a>
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="/about/">About</a>
       <a href="#choice">Why It Works</a>
@@ -387,7 +388,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" aria-label="Hero">
@@ -405,7 +406,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
       </div>
     </div>
     <div class="hero-media reveal reveal-d1">
-      <img src="assets/product.jpg" alt="Post Day One Step emergency contraceptive box" width="1400" height="934">
+      <img src="assets/product.jpg" alt="Post Day One Step emergency contraceptive box" width="700" height="467">
       <div class="hero-badge" aria-label="Effective within 72 hours">
         <div class="badge-icon" aria-hidden="true">✓</div>
         <div class="badge-text">
@@ -446,7 +447,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
 <section class="block choice" id="choice" aria-labelledby="choice-heading">
   <div class="wrap choice-grid">
     <div class="choice-media reveal">
-      <img src="assets/office-selfie.jpg" alt="Group of confident women smiling together">
+      <img loading="lazy" src="assets/office-selfie.jpg" alt="Group of confident women smiling together">
       <div class="choice-pill" aria-label="Up to 89% effective">
         <b>89%</b>
         <span>Effective</span>
@@ -505,7 +506,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
     </div>
     <div class="cards" role="list">
       <article class="card reveal" role="listitem">
-        <img src="assets/laptop-woman.jpg" alt="Woman working calmly on a laptop">
+        <img loading="lazy" src="assets/laptop-woman.jpg" alt="Woman working calmly on a laptop">
         <div class="card-body">
           <div class="card-tag" aria-hidden="true">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -516,7 +517,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
         </div>
       </article>
       <article class="card reveal reveal-d1" role="listitem">
-        <img src="assets/hero-iwd.jpg" alt="Woman smiling outdoors with confidence">
+        <img loading="lazy" src="assets/hero-iwd.jpg" alt="Woman smiling outdoors with confidence">
         <div class="card-body">
           <div class="card-tag" aria-hidden="true">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -527,7 +528,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
         </div>
       </article>
       <article class="card reveal reveal-d2" role="listitem">
-        <img src="assets/two-women.jpg" alt="Two women walking together with ease">
+        <img loading="lazy" src="assets/two-women.jpg" alt="Two women walking together with ease">
         <div class="card-body">
           <div class="card-tag" aria-hidden="true">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 5-7 9-7 9S5 16 5 12V7l7-4z"/></svg>
@@ -615,7 +616,7 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/FullLogo.png" alt="Post Day One Step">
+        <img src="assets/FullLogo.png" alt="Post Day One Step" width="160" height="50" loading="lazy">
         <p>Safe, effective, FDA-approved emergency contraception. Your health and comfort come first.</p>
         <div class="foot-socials">
           <a href="#" class="foot-social" aria-label="Follow us on Facebook">
@@ -639,10 +640,11 @@ footer{background:#0E0B14;color:#fff;padding:4.5rem 0 2rem}
       <div class="foot-col">
         <h4>Newsletter</h4>
         <p style="color:rgba(255,255,255,.5);font-size:.88rem;margin-bottom:.8rem;line-height:1.6">Subscribe for updates, news, and health tips.</p>
-        <form class="newsletter" onsubmit="return false" aria-label="Newsletter signup">
+        <form class="newsletter" aria-label="Newsletter signup">
           <input type="email" placeholder="Email address" aria-label="Email address" required>
           <button type="submit">Sign Up</button>
         </form>
+        <p class="newsletter-msg" role="status" aria-live="polite"></p>
       </div>
     </div>
     <div class="foot-bottom">

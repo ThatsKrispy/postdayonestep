@@ -9,7 +9,7 @@
 <link rel="icon" href="../assets/HalfLogo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- ADA COMPLIANCE — UserWay Widget
      Sign up at app.userway.org → get your Account ID → replace below -->
 <script>(function(d){var s=d.createElement('script');s.setAttribute('data-account','REPLACE_WITH_USERWAY_ACCOUNT_ID');s.setAttribute('src','https://cdn.userway.org/widget.js');(d.body||d.head).appendChild(s)})(document)</script>
@@ -48,23 +48,25 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
 
 <header>
   <div class="wrap nav">
-    <a href="/"><img src="../assets/FullLogo.png" alt="Post Day One Step"></a>
-    <nav class="nav-links" id="navLinks">
-      <a href="/about/" class="active">About</a>
-      <a href="/#how">How It Helps</a>
+    <a href="/" class="nav-logo" aria-label="Post Day One Step Home"><img src="../assets/FullLogo.png" alt="Post Day One Step" width="160" height="40"></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="/about/">About</a>
+      <a href="/#choice">Why It Works</a>
       <a href="/faq/">FAQ</a>
       <a href="/#buy" class="btn">Order Now</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Our Mission</span>
@@ -75,7 +77,7 @@
 
   <div class="wrap">
     <div class="about-mission">
-      <img src="../assets/office-selfie.jpg" alt="Women smiling together">
+      <img loading="lazy" src="../assets/office-selfie.jpg" alt="Women smiling together">
       <div>
         <span class="eyebrow">Who We Are</span>
         <h2>Making the right choice accessible</h2>
@@ -143,32 +145,46 @@
   </div>
 </main>
 
-<footer>
+<footer role="contentinfo">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
-        <img src="../assets/FullLogo.png" alt="Post Day One Step">
+      <div class="foot-brand">
+        <img src="../assets/FullLogo.png" alt="Post Day One Step" width="160" height="50" loading="lazy">
         <p>Safe, effective, FDA-approved emergency contraception. Your health and comfort come first.</p>
+        <div class="foot-socials">
+          <a href="#" class="foot-social" aria-label="Follow us on Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" class="foot-social" aria-label="Follow us on Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="foot-social" aria-label="Follow us on YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg>
+          </a>
+        </div>
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
         <a href="/about/">About</a>
-        <a href="/#how">How It Helps</a>
+        <a href="/#choice">Why It Works</a>
         <a href="/faq/">FAQ</a>
         <a href="/#buy">Order Now</a>
       </div>
       <div class="foot-col">
         <h4>Newsletter</h4>
-        <p style="color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:.6rem">Subscribe for updates, news, and health tips.</p>
-        <form class="newsletter" onsubmit="return false">
+        <p style="color:rgba(255,255,255,.5);font-size:.88rem;margin-bottom:.8rem;line-height:1.6">Subscribe for updates, news, and health tips.</p>
+        <form class="newsletter" aria-label="Newsletter signup">
           <input type="email" placeholder="Email address" aria-label="Email address" required>
           <button type="submit">Sign Up</button>
         </form>
+        <p class="newsletter-msg" role="status" aria-live="polite"></p>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="yr"></span> Post Day One Step. All trademarks are property of their respective owners.</span>
-      <span><a href="/privacy-policy/">Privacy Policy</a></span>
+      <span>&#169; <span id="yr"></span> Post Day One Step. All trademarks are property of their respective owners.</span>
+      <span class="foot-bottom-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+      </span>
     </div>
   </div>
 </footer>
