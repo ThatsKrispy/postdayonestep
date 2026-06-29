@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post Day One Step – Effective Emergency Contraception</title>
+<meta name="description" content="Post Day One Step is an FDA-approved emergency contraceptive (Levonorgestrel 1.5mg). Safe, discreet, and effective within 72 hours. No prescription needed. $24.99.">
+<link rel="canonical" href="https://www.postdayonestep.com/">
+<link rel="icon" href="assets/HalfLogo.png">
+<meta property="og:title" content="Post Day One Step – Effective Emergency Contraception">
+<meta property="og:description" content="Safe, discreet, FDA-approved emergency contraception. Effective within 72 hours. No prescription needed.">
+<meta property="og:image" content="assets/product.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Stripe Buy Button -->
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+:root{
+  --magenta:#D41A68;
+  --magenta-dark:#A81251;
+  --ink:#1A1320;
+  --ink-soft:#5C5560;
+  --blush:#FCF0F5;
+  --blush-deep:#F7DCE8;
+  --white:#FFFFFF;
+  --line:#EDE3E9;
+  --radius:18px;
+  --shadow:0 18px 50px -20px rgba(212,26,104,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:'Inter';font-size:.72rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.18em;color:var(--magenta);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;justify-content:center;
+  background:var(--magenta);color:#fff;font-weight:600;font-size:1rem;
+  padding:1rem 2.2rem;border-radius:100px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+  box-shadow:0 10px 30px -10px rgba(212,26,104,.6);
+}
+.btn:hover{background:var(--magenta-dark);transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(212,26,104,.7)}
+.btn:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+.btn-ghost{background:transparent;color:var(--magenta);border:1.5px solid var(--blush-deep);box-shadow:none}
+.btn-ghost:hover{background:var(--blush);color:var(--magenta-dark);transform:translateY(-2px)}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.nav img{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--magenta)}
+.nav .btn{padding:.65rem 1.4rem;font-size:.9rem}
+.nav-toggle{display:none}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:radial-gradient(120% 100% at 100% 0%,var(--blush) 0%,var(--white) 55%);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:5rem 0 5.5rem}
+.hero h1{font-size:clamp(2.6rem,5.5vw,4.2rem);margin:1.2rem 0 1.4rem}
+.hero h1 em{font-style:italic;color:var(--magenta)}
+.hero p{font-size:1.15rem;color:var(--ink-soft);max-width:30rem;margin-bottom:2rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.hero-price{font-weight:600;color:var(--ink);font-size:.95rem}
+.hero-price b{font-family:'Fraunces';font-size:1.5rem;color:var(--magenta);font-weight:600}
+.hero-media{position:relative}
+.hero-media img{border-radius:var(--radius);box-shadow:var(--shadow);width:100%;object-fit:cover;aspect-ratio:4/3}
+.hero-badge{
+  position:absolute;bottom:-18px;left:-18px;background:#fff;border-radius:14px;
+  padding:.9rem 1.2rem;box-shadow:0 14px 34px -12px rgba(26,19,32,.22);
+  display:flex;align-items:center;gap:.7rem;border:1px solid var(--line);
+}
+.hero-badge .dot{width:34px;height:34px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--magenta);font-weight:700}
+.hero-badge small{display:block;font-size:.72rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em}
+.hero-badge strong{font-size:.95rem}
+
+/* ---------- Trust strip ---------- */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;padding:1.4rem 0;text-align:center}
+.trust-row span{font-size:.88rem;font-weight:500;color:var(--ink-soft);display:flex;align-items:center;gap:.5rem}
+.trust-row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+
+/* ---------- Section base ---------- */
+section.block{padding:5.5rem 0}
+.section-head{max-width:38rem;margin-bottom:3rem}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head h2{font-size:clamp(2rem,3.8vw,2.9rem);margin:.7rem 0 1rem}
+.section-head p{color:var(--ink-soft);font-size:1.05rem}
+
+/* ---------- Choice / benefits ---------- */
+.choice{background:var(--blush)}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.choice-media img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:1/1;object-fit:cover;width:100%}
+.benefits{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.6rem;margin-top:1.5rem}
+.benefits li{display:flex;gap:.7rem;font-size:.96rem;font-weight:500;align-items:flex-start}
+.benefits li svg{flex-shrink:0;margin-top:3px}
+.choice .price-tag{margin:2rem 0 1.5rem;display:flex;align-items:baseline;gap:.6rem}
+.choice .price-tag b{font-family:'Fraunces';font-size:2.4rem;color:var(--magenta);font-weight:600}
+.choice .price-tag span{color:var(--ink-soft);font-size:.9rem}
+
+/* ---------- Feature cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card img{aspect-ratio:16/11;object-fit:cover;width:100%}
+.card-body{padding:1.6rem}
+.card-body h3{font-size:1.3rem;margin-bottom:.5rem}
+.card-body p{font-size:.94rem;color:var(--ink-soft)}
+
+/* ---------- Buy / Stripe ---------- */
+.buy{background:linear-gradient(160deg,var(--magenta) 0%,var(--magenta-dark) 100%);color:#fff}
+.buy-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.buy h2{color:#fff;font-size:clamp(2rem,4vw,3rem)}
+.buy .eyebrow{color:var(--blush-deep)}
+.buy p{color:rgba(255,255,255,.85);margin:1rem 0 2rem;font-size:1.05rem}
+.buy-card{background:#fff;border-radius:24px;padding:2.4rem;color:var(--ink);box-shadow:0 30px 70px -25px rgba(0,0,0,.45)}
+.buy-card .price{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.3rem}
+.buy-card .price b{font-family:'Fraunces';font-size:3rem;color:var(--magenta);font-weight:600}
+.buy-card .price s{color:var(--ink-soft);font-size:1.1rem}
+.buy-card .pname{font-weight:600;font-size:1.05rem;margin-bottom:.2rem}
+.buy-card .pdesc{color:var(--ink-soft);font-size:.9rem;margin-bottom:1.6rem}
+.buy-card ul{list-style:none;margin-bottom:1.8rem;display:grid;gap:.6rem}
+.buy-card ul li{display:flex;gap:.6rem;font-size:.92rem;align-items:center}
+.stripe-slot{min-height:48px}
+.buy-fallback{display:block}
+.buy-note{font-size:.78rem;color:var(--ink-soft);margin-top:1.1rem;text-align:center}
+.amazon-link{margin-top:1.4rem;text-align:center}
+.amazon-link img{height:42px;margin:0 auto;opacity:.9;transition:opacity .2s}
+.amazon-link img:hover{opacity:1}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:780px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:.4rem 0}
+.faq summary{
+  cursor:pointer;list-style:none;padding:1.2rem .2rem;font-weight:600;font-size:1.05rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color .2s;
+}
+.faq summary:hover{color:var(--magenta)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ico{flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--blush-deep);display:grid;place-items:center;color:var(--magenta);transition:transform .25s,background .2s}
+.faq details[open] summary .ico{transform:rotate(45deg);background:var(--blush)}
+.faq details p{padding:0 .2rem 1.3rem;color:var(--ink-soft);font-size:.97rem;max-width:90%}
+
+/* ---------- CTA banner ---------- */
+.cta-banner{text-align:center;padding:5rem 0}
+.cta-banner h2{font-size:clamp(2rem,4vw,3rem);max-width:30rem;margin:0 auto 1.4rem}
+.cta-banner p{color:var(--ink-soft);max-width:34rem;margin:0 auto 2rem;font-size:1.05rem}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:#fff;padding:4rem 0 2rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.foot-grid img{height:54px;filter:brightness(0) invert(1);margin-bottom:1.2rem}
+.foot-grid p{color:rgba(255,255,255,.6);font-size:.92rem;max-width:24rem}
+.foot-col h4{font-family:'Inter';font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.5);margin-bottom:1.1rem;font-weight:600}
+.foot-col a{display:block;color:rgba(255,255,255,.78);font-size:.94rem;margin-bottom:.7rem;transition:color .2s}
+.foot-col a:hover{color:var(--magenta)}
+.newsletter{display:flex;gap:.5rem;margin-top:.4rem}
+.newsletter input{flex:1;padding:.7rem 1rem;border-radius:100px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:.9rem}
+.newsletter input::placeholder{color:rgba(255,255,255,.4)}
+.newsletter button{background:var(--magenta);color:#fff;border:none;border-radius:100px;padding:.7rem 1.3rem;font-weight:600;cursor:pointer;font-size:.9rem;transition:background .2s}
+.newsletter button:hover{background:var(--magenta-dark)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem;color:rgba(255,255,255,.5)}
+.foot-bottom a{color:rgba(255,255,255,.7)}
+
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:860px){
+  .nav-links{
+    position:fixed;inset:74px 0 auto 0;background:#fff;flex-direction:column;
+    align-items:flex-start;gap:0;padding:1rem 24px 1.5rem;border-bottom:1px solid var(--line);
+    transform:translateY(-130%);transition:transform .3s ease;box-shadow:0 20px 40px -20px rgba(0,0,0,.2);
+  }
+  .nav-links.open{transform:none}
+  .nav-links a{padding:.8rem 0;width:100%;border-bottom:1px solid var(--line)}
+  .nav-links .btn{margin-top:.8rem;width:100%}
+  .nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hero-grid,.choice-grid,.buy-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-grid{padding:3rem 0 4rem}
+  .hero-media{order:-1}
+  .cards{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:2rem}
+  section.block{padding:4rem 0}
+}
+@media(max-width:520px){
+  .benefits{grid-template-columns:1fr}
+  .trust-row{gap:1rem 1.6rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top"><img src="assets/FullLogo.png" alt="Post Day One Step"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/about/">About</a>
+      <a href="#choice">Why It Works</a>
+      <a href="/faq/">FAQ</a>
+      <a href="#buy" class="btn">Order Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Your Health Comes First</span>
+      <h1>We're <em>here</em><br>for you.</h1>
+      <p>Post Day One Step offers peace of mind with safe and effective emergency contraception, because your health and comfort come first.</p>
+      <div class="hero-cta">
+        <a href="#buy" class="btn">Order Now</a>
+        <span class="hero-price">From <b>$24.99</b></span>
+      </div>
+    </div>
+    <div class="hero-media reveal">
+      <img src="assets/product.jpg" alt="Post Day One Step emergency contraceptive packaging" width="1400" height="934">
+      <div class="hero-badge">
+        <div class="dot">✓</div>
+        <div><small>Effective within</small><strong>72 hours</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap trust-row">
+    <span>FDA-approved</span>
+    <span>No prescription needed</span>
+    <span>Discreet packaging</span>
+    <span>One-dose solution</span>
+  </div>
+</div>
+
+<!-- CHOICE / BENEFITS -->
+<section class="block choice" id="choice">
+  <div class="wrap choice-grid">
+    <div class="choice-media reveal">
+      <img src="assets/office-selfie.jpg" alt="Women smiling together">
+    </div>
+    <div class="choice-copy reveal">
+      <span class="eyebrow">Your Health Matters Most</span>
+      <h2>Making the right choice</h2>
+      <p style="color:var(--ink-soft);margin-top:.8rem">At Post Day One Step, we believe in empowering you with options. Life may take unexpected turns, but with Post Day One Step, you have a safe and effective solution to prevent pregnancy after contraceptive failure or unprotected sex.</p>
+      <ul class="benefits">
+        <li>{C} Effective within 72 hours</li>
+        <li>{C} FDA-approved and safe</li>
+        <li>{C} Available in-store and online</li>
+        <li>{C} Simple one-dose solution</li>
+        <li>{C} Discreet packaging for privacy</li>
+        <li>{C} Safe for most women</li>
+        <li>{C} Won't affect future fertility</li>
+        <li>{C} No prescription needed</li>
+      </ul>
+      <div class="price-tag"><b>$24.99</b><span>MSRP · per pack</span></div>
+      <a href="#buy" class="btn">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT HELPS -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Take Control of Your Health</span>
+      <h2>One step at a time</h2>
+      <p>With the right support and access to safe solutions, you can move forward with confidence and peace of mind.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <img src="assets/laptop-woman.jpg" alt="Woman working at a laptop">
+        <div class="card-body">
+          <h3>Quick & reliable</h3>
+          <p>Provides fast and effective emergency contraception, giving you peace of mind when it matters.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <img src="assets/hero-iwd.jpg" alt="Woman smiling outdoors">
+        <div class="card-body">
+          <h3>Discreet & convenient</h3>
+          <p>Available online and at your local ShopRite, with discreet packaging for complete privacy.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <img src="assets/two-women.jpg" alt="Two women walking together outdoors">
+        <div class="card-body">
+          <h3>Trusted & safe</h3>
+          <p>FDA-approved and trusted by thousands for its reliability and ease of use.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BUY / STRIPE -->
+<section class="block buy" id="buy">
+  <div class="wrap buy-grid">
+    <div class="buy-copy reveal">
+      <span class="eyebrow">Order Online</span>
+      <h2>Peace of mind,<br>delivered.</h2>
+      <p>Secure checkout powered by Stripe. Discreet packaging, no prescription required, shipped straight to your door.</p>
+    </div>
+    <div class="buy-card reveal">
+      <div class="pname">Post Day One Step</div>
+      <div class="pdesc">Levonorgestrel Tablet, 1.5 mg · Emergency Contraceptive</div>
+      <div class="price"><b>$24.99</b><s>MSRP</s></div>
+      <ul>
+        <li>{Cm} Effective within 72 hours</li>
+        <li>{Cm} Discreet, private packaging</li>
+        <li>{Cm} No prescription needed</li>
+      </ul>
+
+      <!-- ===== STRIPE BUY BUTTON =====
+           Replace the data-* values below with your real IDs from the
+           Stripe Dashboard → Payment Links / Buy Button.
+           Until then, the fallback button links to a Payment Link URL. -->
+      <div class="stripe-slot">
+        <stripe-buy-button
+          buy-button-id="REPLACE_WITH_BUY_BUTTON_ID"
+          publishable-key="pk_live_REPLACE_WITH_PUBLISHABLE_KEY">
+        </stripe-buy-button>
+      </div>
+      <!-- Fallback / alternative: a hosted Stripe Payment Link -->
+      <a href="https://buy.stripe.com/REPLACE_WITH_PAYMENT_LINK" class="btn buy-fallback" style="width:100%;margin-top:.4rem">Buy Now — $24.99</a>
+
+      <p class="buy-note">🔒 Secure checkout · Powered by Stripe</p>
+
+      <div class="amazon-link">
+        <a href="#" aria-label="Also available on Amazon"><img src="assets/amazon.png" alt="Available on Amazon"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq" style="background:var(--blush)">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Good to Know</span>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="wrap reveal">
+    <h2>Take control of your health</h2>
+    <p>Every decision you make about your health matters. Move forward with confidence today.</p>
+    <a href="#buy" class="btn">Order Now</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="assets/FullLogo.png" alt="Post Day One Step">
+        <p>Safe, effective, FDA-approved emergency contraception. Your health and comfort come first.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="/about/">About</a>
+        <a href="#choice">Why It Works</a>
+        <a href="/faq/">FAQ</a>
+        <a href="#buy">Order Now</a>
+      </div>
+      <div class="foot-col">
+        <h4>Newsletter</h4>
+        <p style="color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:.6rem">Subscribe for updates, news, and health tips.</p>
+        <form class="newsletter" onsubmit="return false">
+          <input type="email" placeholder="Email address" aria-label="Email address" required>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Post Day One Step. All trademarks are property of their respective owners.</span>
+      <span><a href="/privacy-policy/">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---- Checkmark icon injection ----
+const ck='<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FCF0F5"/><path d="M7 12.5l3.2 3.2L17 8.5" stroke="#D41A68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ckm='<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FCF0F5"/><path d="M7 12.5l3.2 3.2L17 8.5" stroke="#D41A68" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+document.body.innerHTML=document.body.innerHTML.replace(/\{C\}/g,ck).replace(/\{Cm\}/g,ckm);
+
+// ---- Mobile nav (shared) ----
+// ---- FAQ build ----
+const faqs=[
+  ["What is the MSRP of Post Day One Step?","The Manufacturer's Suggested Retail Price (MSRP) for Post Day One Step is $24.99. Prices may vary slightly depending on the retailer or if purchasing online with added shipping options."],
+  ["What is Post Day One Step?","Post Day One Step is an FDA-approved emergency contraceptive pill designed to prevent pregnancy after unprotected sex or contraceptive failure. It works best when taken within 72 hours of intercourse."],
+  ["How does Post Day One Step work?","Post Day One Step works by delaying ovulation, preventing the release of an egg from the ovaries, which reduces the chances of pregnancy."],
+  ["How effective is Post Day One Step?","When taken within 72 hours, Post Day One Step is up to 89% effective in preventing pregnancy. The sooner you take it, the more effective it is."],
+  ["Can I take Post Day One Step more than once?","Yes, Post Day One Step can be used more than once. However, it is not meant for regular use as a primary form of contraception."],
+  ["Are there any side effects?","Some users may experience mild side effects such as nausea, fatigue, dizziness, or headaches. These typically go away within 24 hours."],
+  ["Do I need a prescription for Post Day One Step?","No, Post Day One Step is available over the counter without a prescription at most pharmacies and can also be purchased online."],
+  ["Will it protect me from sexually transmitted infections (STIs)?","No, Post Day One Step does not protect against sexually transmitted infections. It's important to use condoms to reduce the risk of STIs."],
+  ["How long after unprotected sex can I take it?","Post Day One Step is most effective when taken within 72 hours (3 days) of unprotected sex, but it can be taken up to 5 days in some cases, though efficacy decreases over time."],
+  ["Can I take it if I'm already pregnant?","No, Post Day One Step will not terminate an existing pregnancy. It works by preventing pregnancy before it starts."],
+  ["Will taking it affect my fertility?","No, taking Post Day One Step will not affect your future fertility or ability to conceive."]
+];
+const plus='<span class="ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>';
+document.getElementById('faqList').innerHTML=faqs.map(([q,a])=>
+  `<details><summary>${q}${plus}</summary><p>${a}</p></details>`).join('');
+
+// ---- Year ----
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// ---- Scroll reveal ----
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script src="assets/nav.js"></script>
+</body>
+</html>
